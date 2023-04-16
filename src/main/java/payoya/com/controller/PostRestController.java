@@ -32,4 +32,9 @@ public class PostRestController {
         return postService.createPosts(posts);
     }
 
+    @GetMapping("post/{id}")
+    public Post getPostById(@PathVariable Long id){
+        return postService.getPostById(id);
+    }
+
 }
