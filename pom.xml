@@ -37,7 +37,10 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--Tools for load code without restart server !-->
+		<!--Tools for load code without restart server if you want to remove that things from start or enable
+		1. File | Settings | Build, Execution, Deployment | Compiler | Build project automatically
+		2. File | Settings | Advanced Settings | Allow auto-make to start even if developed application is currently running
+		 !-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -46,7 +49,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
-<!--			<scope>test</scope>-->
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

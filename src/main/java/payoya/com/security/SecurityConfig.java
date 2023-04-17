@@ -15,7 +15,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/**")// in new version instead of method antMatchers you must use .requestMatchers
+//                .authenticated()
+//                .and().formLogin()
+//                .and()
 
+//                .authorizeHttpRequests()
+//                .and()
+//                .formLogin()
+//                .and()
+//                .authorizeHttpRequests()
+//                .requestMatchers( "/tpps/v1/userwithpass/**" , "/tpps/v1/typeofcredit/**", "/tpps/v1/user/**") // in new version instead of method antMatchers you must use .requestMatchers
+//                .permitAll()
+//                .and()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/tpps/v1/user/**")// in new version instead of method antMatchers you must use .requestMatchers
+//                .authenticated()
+//                .and().formLogin()
+//                .and()
                 .build();
     }
 }
