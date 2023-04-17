@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/")
+@CrossOrigin
 public class PostRestController {
 
     private final PostService postService;
