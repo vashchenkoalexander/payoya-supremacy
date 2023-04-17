@@ -1,5 +1,6 @@
 package payoya.com.service;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import payoya.com.entity.Post;
 import payoya.com.repository.IPostRepository;
@@ -32,4 +33,7 @@ public class PostService {
         return postRepository.findById(id).orElse(null);
     }
 
+    public void deleteById(Long id) {
+        postRepository.deleteById(id);
+    }
 }
