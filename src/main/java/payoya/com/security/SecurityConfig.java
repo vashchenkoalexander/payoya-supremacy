@@ -28,6 +28,10 @@ public class SecurityConfig {
                 .requestMatchers("/*")
                 .permitAll()
                 .and()
+                .authorizeHttpRequests()
+                .requestMatchers("/**")
+                .permitAll()
+                .and()
 
 
 //                .authorizeHttpRequests()
