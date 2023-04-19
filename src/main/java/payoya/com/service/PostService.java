@@ -33,7 +33,12 @@ public class PostService {
         return postRepository.findById(id).orElse(null);
     }
 
-    public void deleteById(Long id) {
-        postRepository.deleteById(id);
+    public boolean deleteById(Long id) {
+        if(postRepository.existsById(id)){
+            postRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

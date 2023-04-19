@@ -40,9 +40,14 @@ public class PostRestController {
     }
 
     @DeleteMapping("posts/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Long id){
-        postService.deleteById(id);
-        return ResponseEntity.ok("Okey");
+    public ResponseEntity deleteById(@PathVariable Long id){
+        //postService.deleteById(id);
+        if (postService.deleteById(id)){
+            return ResponseEntity.ok("Deleted Post with id: " + id);
+        } else {
+            return ResponseEntity.ok("NOT_FOUND Post with that id: " + id);
+        }
+
     }
 
 }
