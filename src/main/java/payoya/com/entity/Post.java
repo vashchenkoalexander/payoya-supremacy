@@ -1,7 +1,10 @@
 package payoya.com.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -21,6 +24,10 @@ public class Post {
     @JoinColumn(name = "user_id")
     @JsonBackReference
     private User user;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Comment> commentList;
 
     public Post(){}
 
@@ -67,6 +74,12 @@ public class Post {
         this.user = user;
     }
 
+    public List<Comment> getCommentList(){
+        return this.commentList;
+    }
 
+    public void setCommentList(List<Comment> commentList){
+        this.commentList = commentList;
+    }
 
 }
