@@ -1,5 +1,6 @@
 package payoya.com.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import payoya.com.entity.Post;
@@ -40,14 +41,12 @@ public class PostRestController {
     }
 
     @DeleteMapping("posts/{id}")
-    public ResponseEntity deleteById(@PathVariable Long id){
-        //postService.deleteById(id);
+    public ResponseEntity<String> deleteById(@PathVariable Long id){
         if (postService.deleteById(id)){
-            return ResponseEntity.ok("Deleted Post with id: " + id);
+            return new ResponseEntity<>("Deleted Post with id: " + id, HttpStatus.OK);
         } else {
-            return ResponseEntity.ok("NOT_FOUND Post with that id: " + id);
+            return new ResponseEntity<>("NOT_FOUND Post with that id: " + id, HttpStatus.NOT_FOUND);
         }
-
     }
 
 }

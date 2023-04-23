@@ -33,6 +33,10 @@ public class PostService {
         return postRepository.findById(id).orElse(null);
     }
 
+    /*
+    Returning true if post entity with that id exists in db
+    else return false
+     */
     public boolean deleteById(Long id) {
         if(postRepository.existsById(id)){
             postRepository.deleteById(id);

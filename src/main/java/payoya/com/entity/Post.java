@@ -1,5 +1,6 @@
 package payoya.com.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,8 +17,10 @@ public class Post {
     @Column(name = "body")
     private String body;
 
-    @Column(name = "userId")
-    private Integer userId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
     public Post(){}
 
@@ -26,14 +29,18 @@ public class Post {
         this.body = body;
     }
 
-    public Post(String title, String body, Integer userId){
+    public Post(String title, String body, User user){
         this.title = title;
         this.body = body;
-        this.userId = userId;
+        this.user = user;
     }
 
     public Long getId(){
         return this.id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public void setTitle(String title){
@@ -44,20 +51,20 @@ public class Post {
         return this.title;
     }
 
-    public String getBody(){
-        return this.body;
-    }
-
     public void setBody(String body){
         this.body = body;
     }
 
-    public void setUserId(Integer userId){
-        this.userId = userId;
+    public String getBody(){
+        return this.body;
     }
 
-    public Integer getUserId(){
-        return this.userId;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 
