@@ -49,4 +49,24 @@ public class PostRestController {
         }
     }
 
+    @GetMapping("posts_sorted_by_likes_asc")
+    public List<Post> getPostsSortedByLikesAsc(){
+        return postService.sortByLikesAsc();
+    }
+
+    @GetMapping("posts_sorted_by_likes_desc")
+    public List<Post> getPostsSortedByLikesDesc(){
+        return postService.sortByLikesDesc();
+    }
+
+    @GetMapping("posts_sorted_by_created_time_asc")
+    public List<Post> getPostsSortedByTimeWhenPostWasCreatedAsc(){
+        return postService.sortByTimeWhenPostWasCreatedAsc();
+    }
+
+    @GetMapping("posts_sorted_by_created_time_desc")
+    public List<Post> getPostsSortedByTimeWhenPostWasCreatedDesc(){
+        return postService.sortByTimeWhenPostWasCreatedDesc();
+    }
+
 }
