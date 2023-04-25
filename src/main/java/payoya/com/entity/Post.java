@@ -3,15 +3,12 @@ package payoya.com.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "posts")
 //TODO Like, Dislike, time when post was create, how to add image in db
-//TODO Sort by likes, timeWhenPostWasCreated.
 public class Post {
 
     @Id

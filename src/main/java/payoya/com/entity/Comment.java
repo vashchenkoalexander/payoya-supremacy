@@ -5,8 +5,6 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-// TODO Create this class like other entity Implement OneToMany ONE Post TO MANY Comment, fields, Service,
-//  Controller, Repository
 @Entity
 @Table(name = "comments")
 public class Comment {
